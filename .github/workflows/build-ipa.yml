@@ -1,1 +1,48 @@
+name: Build unsigned iPad IPA
 
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: macos-15
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout project
+        uses: actions/checkout@v4
+
+      - name: Install XcodeGen
+        run: brew install xcodegen
+
+      - name: Generate Xcode project
+        run: xcodegen generate
+
+      - name: Build iPad app without signing
+        run: |
+          xcodebuild \
+            -project DotabataBattle.xcodeproj \
+            -scheme DotabataBattle \
+            -configuration Release \
+            -sdk iphoneos \
+            -derivedDataPath "$PWD/build" \
+            CODE_SIGNING_ALLOWED=NO \
+            build
+
+      - name: Package unsigned IPA
+        run: |
+          mkdir -p dist/Payload
+          cp -R build/Build/Products/Release-iphoneos/DotabataBattle.app dist/Payload/
+          cd dist
+          zip -qry DotabataBattle-unsigned.ipa Payload
+          test -s DotabataBattle-unsigned.ipa
+
+      - name: Upload IPA
+        uses: actions/upload-artifact@v4
+        with:
+          name: DotabataBattle-unsigned-IPA
+          path: dist/DotabataBattle-unsigned.ipa
+          if-no-files-found: error
