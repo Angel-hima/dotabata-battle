@@ -3,12 +3,43 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover" />
-<title>ドタバタバトル！</title>
+<title>ドタバタバトル！ 12ゲーム版</title>
 <style>
 :root{color-scheme:dark;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN", "Yu Gothic",system-ui,sans-serif;background:#0c1024;color:#f8f9ff}
 *{box-sizing:border-box}html,body{width:100%;height:100%;margin:0;overflow:hidden}body{background:radial-gradient(circle at 20% 5%,#37236b 0%,transparent 36%),radial-gradient(circle at 90% 90%,#103a62 0%,transparent 40%),#0b1024}button,input{font:inherit}button{cursor:pointer;-webkit-tap-highlight-color:transparent}#app{height:100%;height:100dvh;overflow:auto;padding:max(12px,env(safe-area-inset-top)) max(12px,env(safe-area-inset-right)) max(12px,env(safe-area-inset-bottom)) max(12px,env(safe-area-inset-left))}.page{max-width:1040px;margin:0 auto;height:100%;display:flex;flex-direction:column;gap:13px;min-height:0}.setup,.summary{align-items:center;justify-content:center;overflow:auto;min-height:min(600px,100%)}.hero{text-align:center}.eyebrow{display:inline-block;font-size:12px;font-weight:900;letter-spacing:.18em;background:#fcca48;color:#21172b;border-radius:999px;padding:6px 14px}.hero h1{font-size:clamp(32px,5vw,61px);margin:8px 0 3px;letter-spacing:.05em;text-shadow:0 5px 25px #cb4be677}.hero p{margin:4px;color:#bbc1df;font-weight:600}.glass{background:#191f3ccf;border:1px solid #59608b69;border-radius:20px;box-shadow:0 15px 50px #0004}.setup-panel{width:min(690px,100%);padding:18px 20px;display:flex;flex-direction:column;gap:12px}.setting-line{display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap}.setting-label{font-weight:900}.seg{display:flex;gap:7px}.seg button{background:#353b5e;border:2px solid transparent;color:#dce0fe;border-radius:12px;padding:10px 22px;font-weight:900}.seg button.active{background:#6b3de0;border-color:#c4a9ff;color:#fff}.names{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.name-row{display:flex;gap:8px;align-items:center;padding:9px;background:#282d4b;border-radius:13px}.dot{display:block;width:18px;height:18px;flex:0 0 18px;border-radius:50%;background:var(--p)}.name-row input{width:100%;min-width:0;padding:5px;background:transparent;border:0;border-bottom:1px solid #676d8e;color:#fff;outline:none;font-weight:800}.name-row label{font-size:12px;color:#c2c7e2;font-weight:800;white-space:nowrap}.primary,.secondary{background:linear-gradient(110deg,#ffcf51,#ff7f70);color:#251730;border:0;border-radius:14px;padding:12px 25px;font-weight:1000;font-size:19px;box-shadow:0 6px 0 #853d5e;transition:transform .1s}.primary:active,.secondary:active{transform:translateY(3px);box-shadow:0 3px 0 #853d5e}.secondary{background:#3a436c;box-shadow:0 5px 0 #202845;color:#fff;font-size:15px}.hint{text-align:center;color:#aab4d6;font-size:12px;line-height:1.5;margin:0}.top{display:flex;justify-content:space-between;align-items:center;gap:9px;flex:0 0 auto}.logo{font-weight:1000;letter-spacing:.06em;font-size:clamp(16px,2.4vw,23px);white-space:nowrap}.pill{border:1px solid #717ba466;background:#202648;border-radius:999px;padding:7px 12px;font-size:12px;font-weight:900}.score-line{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}.score-chip{font-size:12px;font-weight:900;background:#252b4d;border:1px solid #717ba466;border-radius:10px;padding:7px 9px;white-space:nowrap}.score-chip .s-dot{color:var(--p);font-size:14px}.intro{align-items:center;justify-content:center;text-align:center}.intro .glass{width:min(610px,100%);padding:24px;display:flex;flex-direction:column;gap:14px}.bigemoji{font-size:55px}.intro h2,.summary h2{font-size:clamp(29px,4.5vw,49px);margin:0}.intro p{color:#c6cbea;line-height:1.6;margin:0}.tag{color:#ffe691;letter-spacing:.12em;font-weight:950;font-size:13px}.arena{flex:1 1 auto;min-height:0;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:9px}.zone{position:relative;min-height:0;overflow:hidden;border-radius:20px;border:3px solid var(--p);background:linear-gradient(150deg,#31375f,#111731);background:linear-gradient(150deg, color-mix(in srgb,var(--p) 34%, #161b38),#111731);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;touch-action:none;user-select:none;-webkit-user-select:none}.zone.no-player{border-color:#525a7c;background:#151a34}.zone-top{position:absolute;top:7px;left:10px;right:10px;display:flex;align-items:center;justify-content:space-between;gap:8px;pointer-events:none}.zone-name{font-weight:1000;font-size:clamp(14px,2vw,22px);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.zone-stat{font-weight:1000;font-size:clamp(13px,2.2vw,26px);background:#0c1124a6;border-radius:10px;padding:3px 8px}.zone-button{width:min(74%,260px);height:min(65%,160px);min-height:72px;background:#f9fbff;border:0;border-radius:28px;color:#171a36;box-shadow:0 10px 0 #8990ae, inset 0 0 0 5px #fffd;font-weight:1000;font-size:clamp(18px,3.3vw,44px);touch-action:none;user-select:none;-webkit-user-select:none}.zone-button:active{transform:translateY(4px);box-shadow:0 6px 0 #8990ae}.zone-button.done{opacity:.6;background:#c8ffd3;box-shadow:0 4px 0 #4a8267}.zone-caption{font-weight:900;font-size:clamp(12px,1.7vw,16px);opacity:.95;line-height:1.1;text-align:center;pointer-events:none}.game-footer{height:35px;display:flex;align-items:center;justify-content:space-between;gap:12px;font-weight:850;flex:0 0 auto}.progress{flex:1;max-width:470px;background:#293052;border-radius:999px;height:12px;overflow:hidden}.progress>div{height:100%;background:linear-gradient(90deg,#8b6aff,#ffcf51);transition:width .1s linear;width:100%}.timer{font-variant-numeric:tabular-nums;min-width:65px;text-align:right}.target{position:absolute;left:50%;top:60%;transform:translate(-50%,-50%);width:clamp(49px,8vw,86px);height:clamp(49px,8vw,86px);border:4px solid #fff9;border-radius:50%;font-size:clamp(20px,4vw,42px);font-weight:1000;background:#ffdc6d;color:#493112;box-shadow:0 5px 0 #b17318;touch-action:none}.target.fake{background:#7b65ad;box-shadow:0 5px 0 #463e6b;color:white}.target.bomb{background:#ff8585;box-shadow:0 5px 0 #bc4848}.emoji-big{font-size:clamp(29px,6vw,58px);line-height:1}.result-list{width:min(640px,100%);display:flex;flex-direction:column;gap:8px}.result-row{display:grid;grid-template-columns:42px 1fr auto;align-items:center;gap:10px;background:#252b49;border:1px solid #636d9c55;border-radius:14px;padding:12px 15px;font-weight:950}.result-row:first-child{background:#604d32;border-color:#ffe38e66}.result-name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.result-points{color:#ffe18b}.winner{font-size:56px;text-shadow:0 5px 25px #ffd04f66}.mini-note{font-size:12px;color:#b8c0e2;text-align:center}.round-indicator{color:#ffe48a}.sound-btn{border:1px solid #56608c;background:#292f54;color:#e4e6ff;border-radius:11px;font-size:12px;padding:7px 9px;font-weight:900;white-space:nowrap}.summary>.glass{width:min(700px,100%);padding:15px 20px;display:flex;flex-direction:column;gap:12px;align-items:center}.finish-banner{font-size:30px;font-weight:1000;text-align:center}.player-color{color:var(--p)}.record{color:#b8c2de;font-size:12px}.confetti{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:30}.confetti span{position:absolute;top:-25px;width:12px;height:22px;background:var(--c);animation:fall var(--d) linear forwards;left:var(--x);border-radius:3px}@keyframes fall{to{transform:translateY(115vh) rotate(840deg)}}
 .arena.arena-two{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:minmax(0,1fr)}.arena.arena-two .zone-button{width:min(82%,340px);height:min(58%,240px)}.arena.arena-two .zone-name{font-size:clamp(16px,2.5vw,27px)}
 @media (orientation:portrait){.arena{gap:6px}.zone-button{height:47%;min-height:55px}.zone{border-radius:12px}.top{flex-wrap:wrap}.score-line{width:100%;justify-content:center}.game-footer{height:28px}.logo{font-size:16px}}@media(max-height:590px){.setup-panel{padding:10px;gap:7px}.hero h1{font-size:30px}.hero p{font-size:11px}.zone-top{top:4px}.zone-button{min-height:50px}.setup .hint{display:none}.summary>.glass{padding:10px}.result-row{padding:7px 10px}.game-footer{height:26px}}
+
+/* v1.1: six additional minigames; all controls are touch-friendly. */
+.zone .tiny-bubble{position:absolute;left:50%;top:61%;transform:translate(-50%,-50%);border-radius:50%;border:3px solid #fff9;background:#ffde8a;color:#432a24;width:clamp(47px,7vw,84px);height:clamp(47px,7vw,84px);font-size:clamp(24px,3.2vw,39px);display:grid;place-items:center;box-shadow:0 5px 0 #ad6937;touch-action:none;z-index:2}
+.zone .tiny-bubble:active{filter:brightness(1.2)}
+.zone .star-drop{position:absolute;top:12%;left:50%;border:2px solid #fffa;background:#f7de7b;border-radius:50%;width:clamp(43px,7vw,69px);height:clamp(43px,7vw,69px);font-size:clamp(22px,3vw,32px);box-shadow:0 4px 0 #a67827;touch-action:none;animation:starfall var(--travel,2.5s) linear forwards;z-index:2}
+.zone .star-drop.bad{background:#ff9f9f;box-shadow:0 4px 0 #bd5858}
+@keyframes starfall{from{top:17%}to{top:83%}}
+.number-grid{width:min(94%,370px);display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(3px,.6vw,7px);margin-top:20px;padding:3px;}
+.number-tile{min-width:0;min-height:clamp(28px,5.8vh,52px);background:#f8e6a7;border:1px solid #fff5;border-radius:8px;color:#202547;font-size:clamp(14px,2.2vw,26px);font-weight:1000;touch-action:none}
+.number-tile.complete{opacity:.13;pointer-events:none}.number-tile.wrong{background:#ff8e9b;animation:shake .2s linear}
+@keyframes shake{25%{transform:translateX(-3px)}75%{transform:translateX(3px)}}
+.shoot-wrap{width:min(94%,390px);display:flex;flex-direction:column;align-items:center;gap:3px;margin-top:18px}
+.shoot-lanes{width:100%;display:grid;grid-template-columns:repeat(3,1fr);text-align:center;font-size:clamp(17px,3vw,33px);line-height:1.05}
+.shoot-lanes.friendly{font-size:clamp(19px,3.4vw,35px);border-top:2px dashed #ffffff3a;padding-top:4px}
+.shoot-controls{display:grid;grid-template-columns:1fr 1.5fr 1fr;gap:6px;width:100%;margin-top:4px}
+.shoot-controls button,.dpad button{border:1px solid #e4e8ff88;background:#eeeaff;color:#242443;border-radius:10px;font-weight:1000;font-size:clamp(15px,2.4vw,25px);min-height:clamp(34px,5vh,56px);touch-action:none}
+.shoot-controls button:nth-child(2){background:#ffe485}
+.rhythm-pulse{width:min(78%,220px);height:clamp(70px,15vh,145px);border-radius:22px;background:#3d3d79;border:3px solid #a5a3d9;color:#fdfaff;font-size:clamp(19px,3.4vw,39px);font-weight:1000;box-shadow:0 5px 0 #2a2254;touch-action:none;}
+.rhythm-pulse.now{background:#ffe27d;color:#272343;border-color:white;box-shadow:0 0 26px #ffe67dbb;}
+.maze-ui{width:min(94%,385px);display:flex;justify-content:center;align-items:center;gap:clamp(5px,1.3vw,14px);margin-top:20px}
+.maze-board{flex:0 0 auto;width:clamp(104px,18vh,160px);height:clamp(104px,18vh,160px);display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(4,1fr);background:#f4eeff;border-radius:4px;overflow:hidden}
+.maze-cell{display:flex;align-items:center;justify-content:center;font-size:clamp(12px,2.6vh,24px);color:#25244a;min-width:0;min-height:0;border-color:#45418b;border-style:solid;border-width:0}
+.dpad{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(3,minmax(0,1fr));gap:3px;flex:1;max-width:168px}
+.dpad button{font-size:clamp(14px,2.2vw,22px);min-height:clamp(31px,5vh,47px);padding:0}
+.dpad button.up{grid-column:2;grid-row:1}.dpad button.left{grid-column:1;grid-row:2}.dpad button.down{grid-column:2;grid-row:3}.dpad button.right{grid-column:3;grid-row:2}
+.arena.arena-two .number-grid{max-width:450px;gap:8px}
+.arena.arena-two .number-tile{min-height:clamp(42px,10vh,85px);font-size:clamp(20px,3vw,37px)}
+.arena.arena-two .maze-board{width:clamp(140px,29vh,245px);height:clamp(140px,29vh,245px)}
+.arena.arena-two .maze-cell{font-size:clamp(17px,3.8vh,34px)}
+.arena.arena-two .dpad{max-width:175px}
+@media(max-height:590px){.number-grid{margin-top:13px}.number-tile{min-height:28px}.shoot-wrap,.maze-ui{margin-top:10px}.maze-board{width:clamp(96px,19vh,140px);height:clamp(96px,19vh,140px)}.dpad button{min-height:29px}}
 </style>
 </head>
 <body><main id="app"></main>
@@ -21,7 +52,13 @@ const gameDefs=[
  {id:'five',name:'ピッタリ5秒チャレンジ',icon:'⏱️',desc:'自分のボタンを押して計測開始、5秒だと思ったら止めよう。時計は表示されない！',duration:16000},
  {id:'react',name:'反射神経王',icon:'🚦',desc:'「GO!」が出たらタップ！早押しは失格！',duration:9000},
  {id:'bomb',name:'爆弾回避ゲーム',icon:'💥',desc:'出現するゲーム内の爆弾マークを時間内にタップ！逃すと減点。',duration:14000},
- {id:'roulette',name:'運だけルーレット',icon:'🎡',desc:'数字を止めて勝負！大きい数字が強い！',duration:7000}
+ {id:'roulette',name:'運だけルーレット',icon:'🎡',desc:'数字を止めて勝負！大きい数字が強い！',duration:7000},
+ {id:'mole',name:'もぐらたたき',icon:'🔨',desc:'飛び出すもぐらをタップ！たくさん見つけた人が勝ち！',duration:14000},
+ {id:'star',name:'スターキャッチ',icon:'⭐',desc:'落ちてくる星をキャッチ！爆弾マークは減点！',duration:15000},
+ {id:'number',name:'数字早押し',icon:'🔢',desc:'1から10まで順番に押そう！クリアしたら速さで勝負！',duration:18000},
+ {id:'shoot',name:'シューティング',icon:'🚀',desc:'左右のボタンで宇宙船を動かして、敵と同じ列で発射！',duration:16000},
+ {id:'rhythm',name:'リズムバトル',icon:'🎵',desc:'音と「♪ NOW!」に合わせてタップ！タイミングで得点！',duration:12500},
+ {id:'maze',name:'迷路スピード対決',icon:'🌀',desc:'みんな同じ迷路！矢印でロケットを動かして🏁を目指そう！',duration:25000}
 ];
 const app=document.getElementById('app');
 const state={page:'setup',count:2,names:['プレイヤー1','プレイヤー2','プレイヤー3','プレイヤー4'],players:[],round:0,deck:[],game:null,values:[],done:[],data:{},sound:true,expires:0};
@@ -36,7 +73,7 @@ function playerLabel(i){return `<span style="--p:${colors[i]}" class="player-col
 function scores(){return `<div class="score-line">${state.players.map((p,i)=>`<span class="score-chip" style="--p:${p.color}"><span class="s-dot">●</span> ${htmlSafe(p.name)} ${p.points}pt</span>`).join('')}</div>`;}
 function soundBtn(){return `<button class="sound-btn" data-ui="sound">${state.sound?'🔊 ON':'🔇 OFF'}</button>`;}
 function head(){return `<header class="top"><span class="logo">🎉 ドタバタバトル！</span><span class="pill">ROUND ${state.round+1} / 5</span>${scores()}${soundBtn()}</header>`;}
-function setup(){app.innerHTML=`<div class="page setup"><div class="hero"><span class="eyebrow">🎮 1台でワイワイ対戦</span><h1>ドタバタバトル！</h1><p>iPadをみんなで囲んで勝負だ！ 5ラウンドで優勝を決めよう！</p></div><section class="setup-panel glass"><div class="setting-line"><span class="setting-label">👥 プレイ人数</span><div class="seg"><button data-ui="count" data-count="2" class="${state.count===2?'active':''}">2人</button><button data-ui="count" data-count="3" class="${state.count===3?'active':''}">3人</button><button data-ui="count" data-count="4" class="${state.count===4?'active':''}">4人</button></div></div><div class="setting-label">✏️ プレイヤー名</div><div class="names">${colors.slice(0,state.count).map((color,i)=>`<div class="name-row" style="--p:${color}"><span class="dot"></span><label for="name${i}">P${i+1}</label><input id="name${i}" maxlength="12" data-name="${i}" value="${htmlSafe(state.names[i])}" autocomplete="off" /></div>`).join('')}</div><div class="setting-line"><span class="setting-label">🎲 ランダム5ラウンド・6種類から選出</span>${soundBtn()}</div><button class="primary" data-ui="start">🔥 対戦スタート！</button><p class="hint">ネット接続不要・課金なし！ ゲーム中はiPadを横向きに置くのがおすすめ。<br>同点の場合は同じ順位のポイントを獲得！</p></section></div>`;}
+function setup(){app.innerHTML=`<div class="page setup"><div class="hero"><span class="eyebrow">🎮 1台でワイワイ対戦</span><h1>ドタバタバトル！</h1><p>iPadをみんなで囲んで勝負だ！ 5ラウンドで優勝を決めよう！</p></div><section class="setup-panel glass"><div class="setting-line"><span class="setting-label">👥 プレイ人数</span><div class="seg"><button data-ui="count" data-count="2" class="${state.count===2?'active':''}">2人</button><button data-ui="count" data-count="3" class="${state.count===3?'active':''}">3人</button><button data-ui="count" data-count="4" class="${state.count===4?'active':''}">4人</button></div></div><div class="setting-label">✏️ プレイヤー名</div><div class="names">${colors.slice(0,state.count).map((color,i)=>`<div class="name-row" style="--p:${color}"><span class="dot"></span><label for="name${i}">P${i+1}</label><input id="name${i}" maxlength="12" data-name="${i}" value="${htmlSafe(state.names[i])}" autocomplete="off" /></div>`).join('')}</div><div class="setting-line"><span class="setting-label">🎲 ランダム5ラウンド・12種類から選出</span>${soundBtn()}</div><button class="primary" data-ui="start">🔥 対戦スタート！</button><p class="hint">ネット接続不要・課金なし！ 新ミニゲーム6種類を追加！ ゲーム中はiPadを横向きに置くのがおすすめ。<br>同点の場合は同じ順位のポイントを獲得！</p></section></div>`;}
 function intro(){app.innerHTML=`<div class="page intro">${head()}<div class="glass"><div class="tag">ROUND ${state.round+1} / 5</div><div class="bigemoji">${state.game.icon}</div><h2>${state.game.name}</h2><p>${state.game.desc}</p><p class="mini-note">全員が準備できたらスタートを押してね！</p><button class="primary" data-ui="launch">このゲームを開始！</button></div></div>`;}
 function zoneHtml(p,i){const g=state.game.id;let main='',caption='';
  if(g==='tap'){main='<button class="zone-button" data-game="tap" data-player="'+i+'">TAP!</button>';caption='押しまくれ！';}
@@ -44,6 +81,12 @@ function zoneHtml(p,i){const g=state.game.id;let main='',caption='';
  else if(g==='five'){main='<button class="zone-button" data-game="five" data-player="'+i+'">スタート</button>';caption='ぴったり5秒を狙おう！';}
  else if(g==='react'){main='<button class="zone-button" data-game="react" data-player="'+i+'">まって...</button>';caption='GO!で押す！';}
  else if(g==='roulette'){main='<button class="zone-button" data-game="roulette" data-player="'+i+'">🎲 STOP!</button>';caption='<span id="roll-'+i+'">1</span> を止めろ！';}
+ else if(g==='mole'){main='<span class="emoji-big">🌱</span>';caption='🔨 出たらタップ！';}
+ else if(g==='star'){main='<span class="emoji-big">🌟</span>';caption='⭐を取れ！💣は減点';}
+ else if(g==='number'){main='<div class="number-grid" id="numbers-'+i+'"></div>';caption='次は <strong id="nextnumber-'+i+'">1</strong>！';}
+ else if(g==='shoot'){main='<div class="shoot-wrap"><div class="shoot-lanes" id="enemies-'+i+'">· · ·</div><div class="shoot-lanes friendly" id="ships-'+i+'">· 🚀 ·</div><div class="shoot-controls"><button data-game="shoot-left" data-player="'+i+'">◀</button><button data-game="shoot-fire" data-player="'+i+'">🔥 発射！</button><button data-game="shoot-right" data-player="'+i+'">▶</button></div></div>';caption='敵と同じ列に合わせて発射';}
+ else if(g==='rhythm'){main='<button class="rhythm-pulse" data-game="rhythm" data-player="'+i+'" id="rhythm-'+i+'">🎵 まって</button>';caption='合図にぴったり合わせて！';}
+ else if(g==='maze'){main='<div class="maze-ui"><div class="maze-board" id="maze-'+i+'"></div><div class="dpad"><button class="up" data-game="maze" data-dir="0" data-player="'+i+'">▲</button><button class="left" data-game="maze" data-dir="3" data-player="'+i+'">◀</button><button class="down" data-game="maze" data-dir="2" data-player="'+i+'">▼</button><button class="right" data-game="maze" data-dir="1" data-player="'+i+'">▶</button></div></div>';caption='🚀を🏁まで動かせ！';}
  return `<section class="zone" style="--p:${p.color}" id="zone-${i}"><div class="zone-top"><span class="zone-name">${htmlSafe(p.name)}</span><span class="zone-stat" id="stat-${i}">0</span></div>${main}<span class="zone-caption" id="caption-${i}">${caption}</span></section>`;}
 function gameScreen(){app.innerHTML=`<div class="page play">${head()}<div class="arena ${state.count===2?'arena-two':''}">${state.players.map(zoneHtml).join('')}${state.count===3?'<div class="zone no-player"><span class="emoji-big">🎉</span><span class="zone-caption">3人モード</span></div>':''}</div><footer class="game-footer"><span class="round-indicator">${state.game.icon} ${state.game.name}</span><div class="progress"><div id="bar"></div></div><span class="timer" id="time">${Math.ceil(state.game.duration/1000)}秒</span></footer></div>`;}
 function updateStat(i,s){const el=document.getElementById('stat-'+i);if(el)el.textContent=s;}
@@ -55,21 +98,103 @@ function launch(){state.page='game';state.values=Array(state.count).fill(0);stat
  if(gid==='react'){state.values.fill(-Infinity);state.data.green=false;const wait=2300+Math.random()*1700;later(()=>{if(state.page!=='game')return;state.data.green=true;state.data.goAt=performance.now();for(let i=0;i<state.count;i++){if(state.done[i])continue;btn(i).textContent='GO!';updateStat(i,'🟢');}tone(990,.2,'triangle');},wait);}
  if(gid==='target'||gid==='bomb'){for(let i=0;i<state.count;i++)spawnTarget(i);repeat(()=>{for(let i=0;i<state.count;i++){if(gid==='bomb'){const prev=document.querySelector(`#zone-${i} .target`);if(prev)state.values[i]-=1;updateStat(i,state.values[i]);}spawnTarget(i);}},gid==='bomb'?950:1100);}
  if(gid==='roulette'){state.data.roll=Array(state.count).fill(1);repeat(()=>{for(let i=0;i<state.count;i++){if(state.done[i])continue;state.data.roll[i]=1+Math.floor(Math.random()*9);const el=document.getElementById('roll-'+i);if(el)el.textContent=state.data.roll[i];}},90);}
+ if(gid==='mole'){for(let i=0;i<state.count;i++)spawnMole(i);repeat(()=>{for(let i=0;i<state.count;i++)spawnMole(i)},950);}
+ if(gid==='star'){for(let i=0;i<state.count;i++)spawnStar(i);repeat(()=>{for(let i=0;i<state.count;i++)spawnStar(i)},650);}
+ if(gid==='number'){state.data.numberNext=Array(state.count).fill(1);state.data.numberFinish=Array(state.count).fill(null);for(let i=0;i<state.count;i++)paintNumbers(i);}
+ if(gid==='shoot'){state.data.shipLane=Array(state.count).fill(1);state.data.enemyLane=Array(state.count).fill(-1);for(let i=0;i<state.count;i++)spawnEnemy(i);repeat(()=>{for(let i=0;i<state.count;i++)spawnEnemy(i)},1050);}
+ if(gid==='rhythm'){state.data.beatStart=performance.now()+1100;state.data.beatInterval=850;state.data.hitBeat=Array(state.count).fill(-1);state.data.lastBadTap=Array(state.count).fill(-10000);state.data.drawBeat=-99;repeat(refreshBeat,40);}
+ if(gid==='maze'){state.data.maze=createMaze();state.data.pos=Array(state.count).fill(0);state.data.visits=Array.from({length:state.count},()=>new Set([0]));state.data.finish=Array(state.count).fill(null);for(let i=0;i<state.count;i++)paintMaze(i);}
  repeat(()=>{if(state.page!=='game')return;const remain=Math.max(0,state.expires-performance.now());const time=document.getElementById('time'),bar=document.getElementById('bar');if(time)time.textContent=(remain/1000).toFixed(1)+'秒';if(bar)bar.style.width=(remain/state.game.duration*100)+'%';},80);
  later(()=>endRound(),state.game.duration);
  tone(620,.1);}
 function spawnTarget(i){if(state.page!=='game')return;const zone=document.getElementById('zone-'+i);if(!zone)return;zone.querySelector('.target')?.remove();const g=state.game.id;const fake=g==='target'&&Math.random()<.22;const target=document.createElement('button');target.type='button';target.className='target'+(fake?' fake':'')+(g==='bomb'?' bomb':'');target.textContent=g==='bomb'?'💣':fake?'×':'★';target.setAttribute('aria-label',fake?'フェイク':g==='bomb'?'ゲーム内爆弾':'星');target.dataset.game='target';target.dataset.player=i;target.dataset.fake=fake?'1':'0';target.style.left=(18+Math.random()*64)+'%';target.style.top=(33+Math.random()*53)+'%';zone.appendChild(target);}
+function spawnMole(i){
+ if(state.page!=='game'||state.done[i])return;
+ const zone=document.getElementById('zone-'+i);if(!zone)return;
+ zone.querySelector('.tiny-bubble')?.remove();
+ const mole=document.createElement('button');mole.type='button';mole.className='tiny-bubble';mole.textContent='🐹';mole.setAttribute('aria-label','もぐら');
+ mole.dataset.game='mole';mole.dataset.player=i;
+ mole.style.left=(18+Math.random()*64)+'%';mole.style.top=(34+Math.random()*48)+'%';zone.appendChild(mole);
+}
+function spawnStar(i){
+ if(state.page!=='game'||state.done[i])return;
+ const zone=document.getElementById('zone-'+i);if(!zone)return;
+ // Limit simultaneous objects so even four-player iPad screens remain readable.
+ if(zone.querySelectorAll('.star-drop').length>=3)return;
+ const bad=Math.random()<.24,star=document.createElement('button');
+ star.type='button';star.className='star-drop'+(bad?' bad':'');star.textContent=bad?'💣':'⭐';
+ star.setAttribute('aria-label',bad?'減点マーク':'星');star.dataset.game='star';star.dataset.bad=bad?'1':'0';star.dataset.player=i;
+ star.style.left=(10+Math.random()*74)+'%';star.style.setProperty('--travel',(2.05+Math.random()*.95)+'s');
+ star.addEventListener('animationend',()=>star.remove(),{once:true});zone.appendChild(star);
+}
+function paintNumbers(i){
+ const dest=document.getElementById('numbers-'+i);if(!dest)return;
+ const numbers=shuffle(Array.from({length:10},(_,n)=>n+1));
+ dest.innerHTML=numbers.map(n=>`<button class="number-tile" data-game="number" data-player="${i}" data-n="${n}">${n}</button>`).join('');
+ updateStat(i,'0/10');
+}
+function paintShooter(i){
+ const target=document.getElementById('enemies-'+i),ship=document.getElementById('ships-'+i);
+ if(target)target.innerHTML=[0,1,2].map(n=>`<span>${state.data.enemyLane[i]===n?'👾':'·'}</span>`).join('');
+ if(ship)ship.innerHTML=[0,1,2].map(n=>`<span>${state.data.shipLane[i]===n?'🚀':'·'}</span>`).join('');
+}
+function spawnEnemy(i){if(state.page!=='game'||state.done[i])return;state.data.enemyLane[i]=Math.floor(Math.random()*3);paintShooter(i);}
+function refreshBeat(){
+ if(state.page!=='game'||state.game.id!=='rhythm')return;
+ const b=(performance.now()-state.data.beatStart)/state.data.beatInterval;
+ const nearest=Math.round(b),within=nearest>=0&&nearest<13&&Math.abs(b-nearest)*state.data.beatInterval<=220;
+ if(within&&nearest!==state.data.drawBeat){state.data.drawBeat=nearest;tone(920,.07,'triangle');}
+ for(let i=0;i<state.count;i++){
+  const btn=document.getElementById('rhythm-'+i);if(!btn)continue;
+  btn.classList.toggle('now',within);
+  btn.textContent=within?'♪ NOW!':'🎵 まって';
+ }
+}
+function createMaze(){
+ // Same randomly generated solvable maze for everyone. Walls: up, right, down, left.
+ const a=Array.from({length:16},()=>[true,true,true,true]);
+ const vis=new Set([0]);const stack=[0];
+ const steps=[-4,1,4,-1];
+ while(stack.length){
+  const pos=stack[stack.length-1];
+  const opts=[];
+  for(let d=0;d<4;d++){
+   const nxt=pos+steps[d];
+   if(nxt<0||nxt>=16||d===1&&pos%4===3||d===3&&pos%4===0||vis.has(nxt))continue;
+   opts.push([d,nxt]);
+  }
+  if(!opts.length){stack.pop();continue;}
+  const [d,nxt]=opts[Math.floor(Math.random()*opts.length)];
+  a[pos][d]=false;a[nxt][(d+2)%4]=false;vis.add(nxt);stack.push(nxt);
+ }
+ return a;
+}
+function paintMaze(i){
+ const board=document.getElementById('maze-'+i);if(!board)return;
+ const walls=state.data.maze,pos=state.data.pos[i];
+ board.innerHTML=walls.map((cell,n)=>{
+  const styles=['border-top-width','border-right-width','border-bottom-width','border-left-width'];
+  const borders=cell.map((wall,d)=>styles[d]+':'+(wall?'3px':'0')).join(';');
+  return `<span class="maze-cell" style="${borders}">${n===pos?'🚀':n===15?'🏁':''}</span>`;
+ }).join('');
+}
 function handleGame(action,i,button){if(state.page!=='game'||!Number.isInteger(i)||i<0||i>=state.count||state.done[i])return;const g=state.game.id;
  if(action==='tap'&&g==='tap'){state.values[i]+=1;updateStat(i,state.values[i]);if(state.values[i]%4===0)tone(380+state.values[i]*8,.025);}
  if(action==='target'&&(g==='target'||g==='bomb')){if(g==='target'){state.values[i]+=button.dataset.fake==='1'?-2:2;}else state.values[i]+=2;updateStat(i,state.values[i]);tone(g==='target'&&button.dataset.fake==='1'?210:720,.055);if(g==='bomb')button.remove();else spawnTarget(i);}
  if(action==='five'&&g==='five'){const now=performance.now();if(state.data.started[i]===null){state.data.started[i]=now;button.textContent='ストップ！';updateStat(i,'計測中');updateCaption(i,'時間はヒミツ！');tone(460,.08);}else{const diff=Math.abs((now-state.data.started[i])-5000);state.values[i]=-diff;state.done[i]=true;button.textContent='確定！';button.classList.add('done');updateStat(i,(diff/1000).toFixed(2)+'秒差');updateCaption(i,'結果を待とう！');tone(820,.13);if(allDone())later(endRound,550);}}
  if(action==='react'&&g==='react'){state.done[i]=true;if(!state.data.green){state.values[i]=-Infinity;button.textContent='フライング';updateStat(i,'失格');tone(190,.15);}else{state.values[i]=-(performance.now()-state.data.goAt);button.textContent='OK!';updateStat(i,Math.round(-state.values[i])+'ms');tone(820,.10);}button.classList.add('done');if(allDone())later(endRound,650);}
  if(action==='roulette'&&g==='roulette'){state.values[i]=state.data.roll[i];state.done[i]=true;button.textContent=String(state.values[i]);button.classList.add('done');updateStat(i,state.values[i]+'点');updateCaption(i,'決定！');tone(480+state.values[i]*48,.15);if(allDone())later(endRound,600);}
+ if(action==='mole'&&g==='mole'){if(!button.isConnected)return;button.remove();state.values[i]+=2;updateStat(i,state.values[i]);tone(740,.065);spawnMole(i);}
+ if(action==='star'&&g==='star'){if(!button.isConnected)return;state.values[i]+=button.dataset.bad==='1'?-2:2;button.remove();updateStat(i,state.values[i]);tone(button.dataset.bad==='1'?210:840,.08);}
+ if(action==='number'&&g==='number'){const n=Number(button.dataset.n);if(n===state.data.numberNext[i]){button.classList.add('complete');button.disabled=true;state.data.numberNext[i]++;state.values[i]+=1000;updateStat(i,Math.min(10,state.data.numberNext[i]-1)+'/10');tone(400+n*40,.07);const next=document.getElementById('nextnumber-'+i);if(next)next.textContent=state.data.numberNext[i]<=10?state.data.numberNext[i]:'🎉';if(n===10){const elapsed=performance.now()-(state.expires-state.game.duration);state.data.numberFinish[i]=elapsed;state.values[i]+=Math.max(1,1000-elapsed/100);state.done[i]=true;updateStat(i,(elapsed/1000).toFixed(2)+'秒');updateCaption(i,'🎉 クリア！');if(allDone())later(endRound,650);}}else{button.classList.remove('wrong');void button.offsetWidth;button.classList.add('wrong');tone(205,.04);}}
+ if(g==='shoot'&&action.startsWith('shoot-')){if(action==='shoot-left')state.data.shipLane[i]=Math.max(0,state.data.shipLane[i]-1);if(action==='shoot-right')state.data.shipLane[i]=Math.min(2,state.data.shipLane[i]+1);if(action==='shoot-fire'){if(state.data.enemyLane[i]===state.data.shipLane[i]){state.values[i]+=3;state.data.enemyLane[i]=-1;tone(880,.08);}else{state.values[i]-=1;tone(190,.07);}updateStat(i,state.values[i]);}paintShooter(i);}
+ if(g==='rhythm'&&action==='rhythm'){const now=performance.now(),b=(now-state.data.beatStart)/state.data.beatInterval,nearest=Math.round(b);if(nearest>=0&&nearest<13&&Math.abs(b-nearest)*state.data.beatInterval<=220&&state.data.hitBeat[i]!==nearest){const delta=Math.abs(b-nearest)*state.data.beatInterval;state.values[i]+=delta<100?3:2;state.data.hitBeat[i]=nearest;updateStat(i,state.values[i]);tone(delta<100?980:700,.08);updateCaption(i,delta<100?'✨ PERFECT!':'👍 GOOD!');}else if(now-state.data.lastBadTap[i]>310){state.values[i]-=1;state.data.lastBadTap[i]=now;updateStat(i,state.values[i]);tone(230,.035);updateCaption(i,'早すぎ / ずれた！');}}
+ if(g==='maze'&&action==='maze'){const dir=Number(button.dataset.dir),pos=state.data.pos[i],walls=state.data.maze[pos];if(!Number.isInteger(dir)||dir<0||dir>3)return;if(walls[dir]){tone(190,.035);return;}const next=pos+[-4,1,4,-1][dir];if(next<0||next>15)return;state.data.pos[i]=next;state.data.visits[i].add(next);state.values[i]=state.data.visits[i].size*50;paintMaze(i);tone(540,.04);updateStat(i,state.data.visits[i].size+'マス');if(next===15){const elapsed=performance.now()-(state.expires-state.game.duration);state.values[i]=10000+Math.max(1,1000-elapsed/50);state.data.finish[i]=elapsed;state.done[i]=true;updateStat(i,(elapsed/1000).toFixed(2)+'秒');updateCaption(i,'🏁 ゴール！');if(allDone())later(endRound,650);}}
 }
 function rankData(){return state.players.map((p,i)=>({player:p,index:i,raw:state.values[i],valid:Number.isFinite(state.values[i])})).sort((a,b)=>b.raw-a.raw);}
-function resultText(raw){if(!Number.isFinite(raw))return '失格 / 未参加';if(state.game.id==='five')return `${(Math.abs(raw)/1000).toFixed(2)}秒差`;if(state.game.id==='react')return `${Math.round(-raw)}ms`;if(state.game.id==='roulette')return raw+'点';return raw+'点';}
+function resultText(raw,index){if(!Number.isFinite(raw))return '失格 / 未参加';if(state.game.id==='five')return `${(Math.abs(raw)/1000).toFixed(2)}秒差`;if(state.game.id==='react')return `${Math.round(-raw)}ms`;if(state.game.id==='roulette')return raw+'点';if(state.game.id==='number'){const finish=state.data.numberFinish?.[index];return finish!==null&&finish!==undefined?(finish/1000).toFixed(2)+'秒でクリア':Math.floor(raw/1000)+'/10';}if(state.game.id==='maze'){const finish=state.data.finish?.[index];return finish!==null&&finish!==undefined?(finish/1000).toFixed(2)+'秒でゴール':Math.round(raw/50)+'マス';}return raw+'点';}
 function endRound(){if(state.page!=='game')return;clean();state.page='result';const results=rankData(),award=[100,60,30,10];let lastRaw=null,lastRank=0;results.forEach((r,n)=>{if(n===0||r.raw!==lastRaw)lastRank=n;r.rank=lastRank+1;r.awarded=r.valid?award[lastRank]:0;r.player.points+=r.awarded;lastRaw=r.raw;});state.data.results=results;tone(860,.22,'triangle');resultPage();}
-function resultPage(){const results=state.data.results;app.innerHTML=`<div class="page summary">${head()}<section class="glass"><span class="tag">ROUND ${state.round+1} 結果発表</span><h2>${state.game.icon} ${state.game.name}</h2><div class="result-list">${results.map(r=>`<div class="result-row"><span>${r.rank===1&&r.valid?'🥇':r.rank===2?'🥈':r.rank===3?'🥉':r.rank+'位'}</span><span class="result-name">${playerLabel(r.index)} <span class="record">${resultText(r.raw)}</span></span><span class="result-points">+${r.awarded}pt</span></div>`).join('')}</div><button class="primary" data-ui="next">${state.round===4?'🏆 最終結果へ！':'次のラウンドへ ➜'}</button></section></div>`;}
+function resultPage(){const results=state.data.results;app.innerHTML=`<div class="page summary">${head()}<section class="glass"><span class="tag">ROUND ${state.round+1} 結果発表</span><h2>${state.game.icon} ${state.game.name}</h2><div class="result-list">${results.map(r=>`<div class="result-row"><span>${r.rank===1&&r.valid?'🥇':r.rank===2?'🥈':r.rank===3?'🥉':r.rank+'位'}</span><span class="result-name">${playerLabel(r.index)} <span class="record">${resultText(r.raw,r.index)}</span></span><span class="result-points">+${r.awarded}pt</span></div>`).join('')}</div><button class="primary" data-ui="next">${state.round===4?'🏆 最終結果へ！':'次のラウンドへ ➜'}</button></section></div>`;}
 function finalPage(){state.page='final';const results=state.players.map((p,i)=>({p,i})).sort((a,b)=>b.p.points-a.p.points);const best=results[0].p.points;results.forEach((r,n)=>{r.rank=results.findIndex(x=>x.p.points===r.p.points)+1;});app.innerHTML=`<div class="page summary"><section class="glass"><span class="tag">全5ラウンド 終了！</span><div class="winner">🏆</div><div class="finish-banner">${results.filter(r=>r.p.points===best).map(r=>htmlSafe(r.p.name)).join(' ＆ ')} の優勝！！</div><p class="mini-note">${results.filter(r=>r.p.points===best).length>1?'同点優勝！':'おめでとう！'} みんなでよく戦った！</p><div class="result-list">${results.map((r,n)=>`<div class="result-row"><span>${r.rank===1?'🥇':r.rank===2?'🥈':r.rank===3?'🥉':r.rank+'位'}</span><span class="result-name">${playerLabel(r.i)}</span><span class="result-points">${r.p.points}pt</span></div>`).join('')}</div><button class="primary" data-ui="restart">🔄 もう一度遊ぶ！</button></section></div>`;confetti();tone(880,.18);later(()=>tone(1040,.22),170);}
 function confetti(){let box=document.createElement('div');box.className='confetti';for(let i=0;i<55;i++){const p=document.createElement('span');p.style.setProperty('--x',Math.random()*100+'%');p.style.setProperty('--d',2+Math.random()*3+'s');p.style.setProperty('--c',colors[i%4]);p.style.animationDelay=Math.random()*.8+'s';box.appendChild(p);}document.body.appendChild(box);setTimeout(()=>box.remove(),5800);}
 function start(){state.players=colors.slice(0,state.count).map((color,i)=>({name:(state.names[i]||'').trim().slice(0,12)||'プレイヤー'+(i+1),color,points:0}));state.deck=shuffle(gameDefs).slice(0,5);state.round=0;state.game=state.deck[0];state.page='intro';tone(770,.12);intro();}
