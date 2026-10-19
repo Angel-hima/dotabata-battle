@@ -1,0 +1,7 @@
+# Xcode local build outputs
+build/
+dist/
+*.xcodeproj/
+*.xcworkspace/
+DerivedData/
+.DS_Store
