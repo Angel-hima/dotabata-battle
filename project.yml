@@ -11,7 +11,7 @@ targets:
     deploymentTarget: '16.0'
     sources:
       - path: App/DotabataBattleApp.swift
-      - path: Game/index.html
+      - path: Game
         buildPhase: resources
     settings:
       base:
